@@ -9,7 +9,7 @@ This folder contains a [Terraform](https://developer.hashicorp.com/terraform) co
 ## Usage
 
 Prior to initalizing your project, please be sure to:
-- create an [S3 bucket]() on your [AWS account]().
+- create an [S3 bucket](https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html) on your [AWS account](https://aws.amazon.com/account/).
 - copy the content of [sample.hcl](backend/sample.hcl) file to another file (e.g.: backend/aws.hcl)
 - fill the fields needed
 
