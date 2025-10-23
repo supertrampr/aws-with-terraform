@@ -1,0 +1,3 @@
+%{ for k, v in response_headers ~}
+${upper(k)}: ${v}.
+%{ endfor ~}

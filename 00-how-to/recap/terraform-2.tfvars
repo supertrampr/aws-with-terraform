@@ -1,0 +1,1 @@
+file_content = "Lezione 4 di Terraform."

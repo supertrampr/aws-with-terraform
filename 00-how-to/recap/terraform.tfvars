@@ -1,0 +1,1 @@
+file_content = "Recap di terraform."

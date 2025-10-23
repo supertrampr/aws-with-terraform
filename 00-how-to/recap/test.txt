@@ -1,0 +1,6 @@
+Access-Control-Allow-Origin : *
+Alt-Svc : h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+Content-Length : 14
+Content-Type : text/plain
+Date : Mon, 20 Oct 2025 13:35:48 GMT
+Via : 1.1 google
