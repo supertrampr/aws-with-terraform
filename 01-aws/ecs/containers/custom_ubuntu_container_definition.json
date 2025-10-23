@@ -1,0 +1,10 @@
+[
+  {
+    "name": "custom_ubuntu",
+    "image": "${image_tag}",
+    "cpu": ${cpu},
+    "memory": ${memory},
+    "essential": true,
+    "portMappings": ${port_mappings}
+  }
+]
