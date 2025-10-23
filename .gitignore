@@ -1,3 +1,6 @@
 # Terraform files and folders
 .terraform
 *.tfstate
+secrets.auto.tfvars
+**/backend/**/*.hcl
+!**/backend/**/sample.hcl
