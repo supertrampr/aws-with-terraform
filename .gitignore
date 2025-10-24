@@ -4,3 +4,7 @@
 secrets.auto.tfvars
 **/backend/**/*.hcl
 !**/backend/**/sample.hcl
+*.tfplan
+
+# macos files and folder
+.DS_Store
