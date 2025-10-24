@@ -16,6 +16,7 @@ resource "aws_db_instance" "this" {
   username                    = var.username
   password                    = var.is_password_managed ? null : random_password.this[0].result
   vpc_security_group_ids      = var.security_group_ids
+  skip_final_snapshot         = true
 }
 
 resource "aws_db_parameter_group" "this" {

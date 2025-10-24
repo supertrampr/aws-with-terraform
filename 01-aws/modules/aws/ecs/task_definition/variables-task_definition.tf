@@ -3,6 +3,11 @@ variable "container_definitions" {
   type        = any
 }
 
+variable "policy" {
+  description = "Policy document to attach to the task definition iam role."
+  type        = string
+}
+
 variable "network_mode" {
   description = "Docker networking mode to use for the containers in the task."
   type        = string

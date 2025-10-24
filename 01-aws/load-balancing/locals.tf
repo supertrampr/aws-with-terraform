@@ -2,7 +2,7 @@ locals {
   ssh_connection = <<EOT
 The instance has been deployed, you can connect to it by running command:
 
-    ssh -i ${path.module}/${local_file.ssh.filename} -p 2222 ubuntu@${try(data.dns_a_record_set.this[0].addrs[0], "")}
+    ssh -i ${path.module}/${local_file.ssh.filename} -p 2222 ubuntu@${try(module.network_load_balancer.dns_name, "")}
 
 EOT
 

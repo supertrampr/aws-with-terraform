@@ -19,6 +19,18 @@ variable "network_configuration" {
   type = object({
     list_of_subnets  = list(string)
     assign_public_ip = optional(bool, false)
+    security_groups  = optional(list(string), [])
   })
 }
 
+variable "launch_type" {
+  description = "Launch type on how to run this service."
+  type        = string
+  default     = "FARGATE"
+}
+
+variable "is_ecs_managed_tags_enabled" {
+  description = "Whether to enable tags at ECS service task level."
+  type        = bool
+  default     = true
+}

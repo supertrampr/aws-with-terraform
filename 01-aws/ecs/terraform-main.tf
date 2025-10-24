@@ -10,6 +10,22 @@ module "network" {
   public_subnets_cidr_block  = var.public_subnets_cidr_block
 }
 
+module "ecs_security_group" {
+  source = "../modules/aws/security_group"
+
+  owner       = var.owner
+  region_code = var.region_code
+  vpc_id      = module.network.vpc_id
+  security_ingress_rules = {
+    "web" = {
+      ip_protocol = "tcp"
+      from_port   = 80
+      to_port     = 80
+      cidr_ipv4   = "0.0.0.0/0"
+    }
+  }
+}
+
 module "custom_image" {
   source = "../modules/docker/image"
 
@@ -44,22 +60,23 @@ module "ecs_cluster" {
   region_code = var.region_code
 }
 
-module "ecs_custom_ubuntu_task_definition" {
+module "ecs_task_definition" {
   source = "../modules/aws/ecs/task_definition"
 
   owner       = var.owner
   region_code = var.region_code
+  cpu         = 256
+  memory      = 512
+  policy      = file("${path.root}/policies/execution_role_policy.json")
   container_definitions = templatefile("${path.root}/containers/custom_ubuntu_container_definition.json", {
     image_tag = "nginx:latest"
     port_mappings = jsonencode([{
       containerPort = 80
       hostPort      = 80
     }])
-    cpu    = 1024
-    memory = 2048
+    cpu    = 256
+    memory = 512
   })
-  cpu    = 1024
-  memory = 2048
 }
 
 module "ecs_service" {
@@ -68,10 +85,14 @@ module "ecs_service" {
   owner               = var.owner
   region_code         = var.region_code
   cluster_arn         = module.ecs_cluster.arn
-  task_definition_arn = module.ecs_custom_ubuntu_task_definition.arn
+  task_definition_arn = module.ecs_task_definition.arn
   network_configuration = {
+    assign_public_ip = true
     list_of_subnets = [
       for k, v in module.network.public_subnets_ids : v
+    ]
+    security_groups = [
+      module.ecs_security_group.id
     ]
   }
 }

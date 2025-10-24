@@ -7,7 +7,6 @@ variable "aws_region" {
 variable "aws_access_key" {
   description = "AWS provider access key"
   type        = string
-  default     = "AKIAYEKP5ZEFFJDWCAPB"
 }
 
 variable "aws_secret_key" {

@@ -15,5 +15,5 @@ output "how_to_connect" {
 
 output "visit_nginx" {
   description = "Information on how to visit Nginx welcome page."
-  value       = "curl http://${data.dns_a_record_set.this[0].addrs[0]}:8888"
+  value       = "curl http://${module.network_load_balancer.dns_name}:8888"
 }

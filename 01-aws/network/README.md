@@ -1,4 +1,4 @@
-# First project
+# Network
 
 This folder contains a [Terraform](https://developer.hashicorp.com/terraform) configuration that creates infrastructure on [AWS](https://aws.amazon.com/).
 
