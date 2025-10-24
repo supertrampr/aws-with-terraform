@@ -107,7 +107,7 @@ And the result will be something like this:
 
 Also a html format can be generated, try opening [cost-breakdown.html](docs/infracost/cost-breakdown.html) on your browser.
 
-## Terraform test
+## Terraform test
 
 This is not an utility but it is a built-in command of Terraform from version 1.6.0, what is interesting is that previously there was [terratest](https://terratest.gruntwork.io/docs/) and it was in fact a third party utility.
 
