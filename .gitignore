@@ -5,6 +5,7 @@ secrets.auto.tfvars
 **/backend/**/*.hcl
 !**/backend/**/sample.hcl
 *.tfplan
+.infracost
 
 # macos files and folder
 .DS_Store
